@@ -1,0 +1,31 @@
+
+<h2>Connection</h2>
+
+<!-- <code>{{credentials | json}}</code> -->
+
+<app-base-input
+  fType="email"
+  [(fValue)]="credentials.email"
+  fLabel="Email : ">
+</app-base-input>
+<app-base-input
+  fType="password"
+  [(fValue)]="credentials.password"
+  fLabel="Mot de passe : ">
+</app-base-input>
+<app-base-button
+  class="btn btn-primary"
+  (click)="sendLoginRequest()"
+  [disabled]=" !credentials.email ||  !credentials.password">
+    Login
+</app-base-button>
+
+<div class = "alert alert-info" *ngIf="feedbackMessage">
+  {{feedbackMessage}}
+</div>
+
+<!-- <p>Email : <input class="form-control" type="email" [(ngModel)]="credentials.email"></p>
+<p>Mot de passe : <input class="form-control" type="password" [(ngModel)]="credentials.password"></p>
+<button class="btn btn-primary"
+(click)="sendLoginRequest()"
+[disabled]=" !credentials.email ||  !credentials.password">Login</button> -->

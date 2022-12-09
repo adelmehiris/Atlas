@@ -1,0 +1,20 @@
+<h2>Messages ({{ (messageService.state$ | async)?.messages?.length }}) :</h2>
+
+<input class="form-control" [(ngModel)]="search">
+<hr>
+<span *ngIf="search"
+  class="badge bg-primary"
+  (click)=" search = '' ">
+  {{search}}
+</span>
+
+
+<div class="list-group m4" *ngIf="(messageService.state$ | async)?.messages as messages">
+  <div appZoom
+    *ngFor="let item of messages | filterMessages:search"
+    class="list-group-item">
+
+    <p>{{item.content}}</p>
+    <em>{{item.timestamp | date : 'fullDate'}}</em>
+  </div>
+</div>

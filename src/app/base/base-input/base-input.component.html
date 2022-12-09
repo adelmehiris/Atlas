@@ -1,0 +1,9 @@
+
+<label>
+    {{fLabel}} :
+    <input
+      class="form-control"
+      type="fType"
+      [ngModel]="fValue"
+      (ngModelChange)=" fValueChange.emit($event) ">
+</label>
